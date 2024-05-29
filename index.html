@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login 1</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+            /* border: 1px solid green; */
+        }
+
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+            background-color: white;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            width: fit-content;
+            position: relative;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .lock {
+            font-size: 20px;
+            padding: 5px;
+            background-color: rgb(200, 0, 255);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            color: white;
+        }
+
+        .sign-text {
+            font-size: 25px;
+        }
+
+        form {
+            margin-top: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        form>div {
+            width: 400px;
+            height: 55px;
+            position: relative;
+        }
+
+        label {
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+            color: rgb(110, 110, 110);
+            transition: all linear 0.2s;
+            cursor: text;
+        }
+
+        input {
+            width: 100%;
+            height: 100%;
+            border: 1px solid rgb(206, 206, 206);
+            border-radius: 5px;
+            font-size: 110%;
+            padding: 0 15px;
+            outline-color: rgb(29, 123, 254);
+            font-weight: 100;
+        }
+
+        input:hover {
+            border: 1px solid black;
+        }
+
+        .name-c {
+            display: flex;
+            justify-content: space-between;
+
+        }
+
+        .lbf {
+            top: 0;
+            left: 10px;
+            background-color: white;
+            padding: 0 5px;
+            font-size: 85%;
+            cursor: default;
+        }
+
+
+        .f-name-c,
+        .l-name-c {
+            position: relative;
+            width: 48%;
+            height: 100%;
+        }
+
+        .agree-c {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .agree-c p {
+            font-size: 17px;
+        }
+
+        input[type='checkbox'] {
+            height: 20px;
+            width: 20px;
+        }
+
+        input[type='submit'] {
+            background-color: rgb(31, 113, 228);
+            color: white;
+            font-size: 13px;
+            border: none;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.7);
+            padding: 10px 0;
+            cursor: pointer;
+            transition: all linear 0.2s;
+        }
+
+        input[type='submit']:hover {
+            background-color: rgb(26, 101, 223);
+            box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.7);
+        }
+
+
+
+
+        @media screen and (max-width:500px) {
+
+            form>div {
+                width: 320px;
+            }
+
+            .name-c {
+                height: 125px;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .f-name-c,
+            .l-name-c {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <span class="lock"><i class="ri-lock-line"></i></span>
+        <span class="sign-text">Sign up</span>
+
+        <form action="#">
+
+            <div class="name-c">
+                <div class="f-name-c">
+                    <label for="f-name">First Name*</label>
+                    <input type="text" id="f-name">
+                </div>
+
+                <div class="l-name-c">
+                    <label for="l-name">Last Name*</label>
+                    <input type="text" id="l-name">
+                </div>
+            </div>
+
+            <div class="e-address-c">
+                <label for="e-address">Email Address*</label>
+                <input type="email" id="e-address">
+            </div>
+
+            <div class="password-c">
+                <label for="password">Password*</label>
+                <input type="password" id="password">
+            </div>
+
+            <div class="agree-c">
+                <input type="checkbox" id="check">
+                <p>I want to receive inspiration, marketing promotions and updates via email.</p>
+            </div>
+
+            <input type="submit" value="SIGN UP">
+        </form>
+    </div>
+
+
+
+    <script>
+        let inputs = document.querySelectorAll('input');
+        inputs.forEach((inp) => {
+            inp.addEventListener('focus', () => {
+                inp.previousElementSibling.classList.add('lbf');
+                inp.previousElementSibling.style.color = 'rgb(31, 113, 228)';
+            });
+
+            inp.addEventListener('blur', () => {
+                if ((inp.value == '')) {
+                    inp.previousElementSibling.classList.remove('lbf');
+                }
+                inp.previousElementSibling.style.color = 'rgb(110, 110, 110)';
+            });
+        });
+    </script>
+</body>
+
+</html>
