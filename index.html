@@ -220,15 +220,19 @@
         let inputs = document.querySelectorAll('input');
         inputs.forEach((inp) => {
             inp.addEventListener('focus', () => {
-                inp.previousElementSibling.classList.add('lbf');
-                inp.previousElementSibling.style.color = 'rgb(31, 113, 228)';
+                if (!(inp == document.querySelector('input[type=submit]'))) {
+                    inp.previousElementSibling.classList.add('lbf');
+                    inp.previousElementSibling.style.color = 'rgb(31, 113, 228)';
+                }
             });
 
             inp.addEventListener('blur', () => {
-                if ((inp.value == '')) {
-                    inp.previousElementSibling.classList.remove('lbf');
+                if (!(inp == document.querySelector('input[type=submit]'))) {
+                    if ((inp.value == '')) {
+                        inp.previousElementSibling.classList.remove('lbf');
+                    }
+                    inp.previousElementSibling.style.color = 'rgb(110, 110, 110)';
                 }
-                inp.previousElementSibling.style.color = 'rgb(110, 110, 110)';
             });
         });
     </script>
